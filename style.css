@@ -1,0 +1,429 @@
+
+/* پایه */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #0a0f0d;
+    color: #e4e6eb;
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+}
+
+input, select, button, textarea {
+    font-family: inherit;
+}
+
+/* ورود */
+body.auth-body {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.auth-box, .new-box {
+    background: #121a16;
+    border: 1px solid #1e2b24;
+    border-radius: 12px;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 36px 28px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.5);
+}
+
+.auth-box h2 {
+    margin: 0 0 26px;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.auth-error {
+    padding: 10px 12px;
+    margin-bottom: 16px;
+    background: #2a1414;
+    color: #f87171;
+    border: 1px solid #4a1f1f;
+    border-radius: 8px;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* فرم‌ها */
+.auth-form, .new-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-form { gap: 12px; }
+.new-form { gap: 16px; }
+
+.auth-form input, .new-field input, .new-field select {
+    padding: 12px 14px;
+    background: #0a0f0d;
+    border: 1px solid #1e2b24;
+    border-radius: 8px;
+    color: #e4e6eb;
+    font-size: 13px;
+    outline: none;
+    transition: border-color .15s;
+}
+
+.auth-form input::placeholder, .new-field input::placeholder {
+    color: #5a6b62;
+}
+
+.auth-form input:focus, .new-field input:focus, .new-field select:focus {
+    border-color: #22c55e;
+}
+
+.new-field input[type="date"], .new-field select {
+    color-scheme: dark;
+}
+
+/* دکمه‌ها */
+.auth-form button, .new-submit {
+    margin-top: 8px;
+    padding: 12px;
+    background: #22c55e;
+    border: 0;
+    border-radius: 8px;
+    color: #0a0f0d;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+}
+
+.auth-form button:hover, .new-submit:hover, .add-task-btn:hover {
+    background: #16a34a;
+}
+
+/* داشبورد */
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 18px;
+    background: #121a16;
+    border-left: 1px solid #1e2b24;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #1e2b24;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border: 2px solid #22c55e;
+    border-radius: 50%;
+}
+
+.avatar img, .avatar svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: hidden;
+}
+
+.profile-name {
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.profile-phone {
+    color: #5a6b62;
+    font-size: 12px;
+    direction: ltr;
+    text-align: right;
+}
+
+/* منو */
+.side-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.nav-item {
+    padding: 10px 14px;
+    color: #9ca3af;
+    font-size: 13px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: .15s;
+}
+
+.nav-item:hover, .nav-item.active {
+    background: #1a2520;
+    color: #e4e6eb;
+}
+
+.nav-item.active {
+    color: #22c55e;
+    font-weight: 500;
+}
+
+.nav-logout {
+    margin-top: auto;
+    color: #f87171;
+}
+
+.nav-logout:hover {
+    background: #2a1414;
+    color: #fca5a5;
+}
+
+/* محتوا */
+.content {
+    flex: 1;
+    min-width: 0;
+    padding: 30px 32px;
+}
+
+.content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+.content-header h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.task-count {
+    color: #5a6b62;
+    font-size: 12px;
+}
+
+.add-task-btn {
+    padding: 8px 16px;
+    background: #22c55e;
+    color: #0a0f0d;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background .15s;
+}
+
+.back-link {
+    color: #5a6b62;
+    font-size: 12px;
+    text-decoration: none;
+    transition: color .15s;
+}
+
+.back-link:hover {
+    color: #e4e6eb;
+}
+
+/* کارت وظیفه */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-card {
+    padding: 16px 18px;
+    background: #121a16;
+    border: 1px solid #1e2b24;
+    border-radius: 10px;
+    transition: border-color .15s;
+}
+
+.task-card:hover {
+    border-color: #2a3b32;
+}
+
+.task-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.task-title {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.task-meta {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    color: #5a6b62;
+    font-size: 12px;
+}
+
+.task-delete {
+    flex-shrink: 0;
+    color: #f87171;
+    font-size: 12px;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity .15s;
+}
+
+.task-card:hover .task-delete {
+    opacity: 1;
+}
+
+.task-delete:hover {
+    text-decoration: underline;
+}
+
+/* وضعیت */
+.badge {
+    flex-shrink: 0;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+}
+
+.badge.done {
+    background: rgba(34,197,94,.12);
+    color: #22c55e;
+}
+
+.badge.doing {
+    background: rgba(245,158,11,.12);
+    color: #f59e0b;
+}
+
+.badge.todo {
+    background: rgba(107,114,128,.15);
+    color: #9ca3af;
+}
+
+/* نوار پیشرفت */
+.progress-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 6px;
+    overflow: hidden;
+    background: #0a0f0d;
+    border-radius: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #22c55e;
+    border-radius: 10px;
+    transition: width .3s;
+}
+
+.task-card.done .progress-fill {
+    background: #22c55e;
+}
+
+.task-card.doing .progress-fill {
+    background: #f59e0b;
+}
+
+.task-card.todo .progress-fill {
+    background: #4b5563;
+}
+
+.progress-text {
+    min-width: 38px;
+    color: #9ca3af;
+    font-size: 11px;
+    text-align: left;
+}
+
+/* وظیفه جدید */
+.new-box {
+    max-width: 560px;
+    padding: 28px 26px;
+}
+
+.new-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.new-field label {
+    color: #9ca3af;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.new-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* موبایل */
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 16px;
+    }
+
+    .content {
+        padding: 20px 16px;
+    }
+
+    .task-delete {
+        opacity: 1;
+    }
+
+    .new-row {
+        grid-template-columns: 1fr;
+    }
+}
